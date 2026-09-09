@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIPS Shield - Green Lantern Corps</title>
+    <style>
+        /* ===== GREEN LANTERN THEME ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0a0f0a;
+            background-image: 
+                radial-gradient(ellipse at center, #0d1f0d 0%, #050805 100%);
+            min-height: 100vh;
+            font-family: 'Rajdhani', sans-serif;
+            color: #00ff41;
+            padding: 20px;
+        }
+        
+        /* ===== HEADER ===== */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid rgba(0, 255, 65, 0.2);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: #00ff41;
+            box-shadow: 0 0 20px #00ff41, 0 0 60px #00ff41;
+        }
+        
+        .header h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #00ff41;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 30px rgba(0, 255, 65, 0.2);
+            letter-spacing: 4px;
+        }
+        
+        .header .subtitle {
+            font-size: 1rem;
+            color: rgba(0, 255, 65, 0.6);
+            letter-spacing: 6px;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+        
+        /* ===== STATUS BAR ===== */
+        .status-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px;
+            background: rgba(0, 255, 65, 0.03);
+            border: 1px solid rgba(0, 255, 65, 0.1);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: rgba(0, 255, 65, 0.7);
+        }
+        
+        .status-item .value {
+            color: #00ff41;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #00ff41;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+}
+        
+        /* ===== ALERT FEED ===== */
+        .alert-feed {
+            background: rgba(0, 255, 65, 0.02);
+            border: 1px solid rgba(0, 255, 65, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            min-height: 300px;
+        }
+        
+        .alert-feed .title {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.8rem;
+            color: rgba(0, 255, 65, 0.5);
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .alert-feed .empty {
+            text-align: center;
+            color: rgba(0, 255, 65, 0.3);
+            padding: 60px 0;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        
+        /* ===== ALERT CARDS ===== */
+        .alert-card {
+            background: rgba(0, 255, 65, 0.03);
+            border-left: 4px solid #00ff41;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            animation: slideIn 0.3s ease;
+            transition: all 0.3s;
+        }
+        
+        .alert-card:hover {
+            background: rgba(0, 255, 65, 0.06);
+            transform: translateX(5px);
+        }
+        
+        .alert-card.deauth {
+            border-left-color: #ff0040;
+        }
+        
+        .alert-card.evil_twin {
+            border-left-color: #ff8c00;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .alert-card .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .alert-card .type {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .alert-card .type.deauth {
+            color: #ff0040;
+        }
+        
+        .alert-card .type.evil_twin {
+            color: #ff8c00;
+        }
+        
+        .alert-card .time {
+            font-size: 0.8rem;
+            color: rgba(0, 255, 65, 0.4);
+        }
+        
+        .alert-card .details {
+            font-size: 0.9rem;
+            color: rgba(0, 255, 65, 0.8);
+            line-height: 1.6;
+        }
+        
+        .alert-card .details .label {
+            color: rgba(0, 255, 65, 0.4);
+            font-weight: 300;
+        }
+        
+        .alert-card .details .highlight {
+            color: #00ff41;
+            font-weight: 600;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.7rem;
+        }
+        
+        /* ===== STATISTICS ===== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-box {
+            background: rgba(0, 255, 65, 0.03);
+            border: 1px solid rgba(0, 255, 65, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .stat-box .number {
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00ff41;
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+        }
+        
+        .stat-box .label {
+            font-size: 0.7rem;
+            color: rgba(0, 255, 65, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            background: transparent;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            color: #00ff41;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .btn:hover {
+            background: rgba(0, 255, 65, 0.1);
+            border-color: #00ff41;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .btn.danger {
+            border-color: rgba(255, 0, 64, 0.3);
+            color: #ff0040;
+        }
+        
+        .btn.danger:hover {
+            background: rgba(255, 0, 64, 0.1);
+            border-color: #ff0040;
+            box-shadow: 0 0 20px rgba(255, 0, 64, 0.1);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+            }
+            
+            .status-bar {
+                gap: 15px;
+                font-size: 0.8rem;
+            }
+            
+            .alert-card .header-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 255, 65, 0.02);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 255, 65, 0.3);
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 255, 65, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+    <h1>🟢 WIPS SHIELD</h1>
+    <div class="subtitle">GREEN LANTERN SECURITY CORPS · SECTOR 2814</div>
+</div>
+
+<!-- ===== STATUS BAR ===== -->
+<div class="status-bar">
+    <div class="status-item">
+        <span class="status-dot"></span>
+        <span>SYSTEM ACTIVE</span>
+    </div>
+    <div class="status-item">
+        ALERTS: <span class="value" id="totalAlerts">0</span>
+    </div>
+    <div class="status-item">
+        DEAUTH: <span class="value" id="deauthCount">0</span>
+    </div>
+    <div class="status-item">
+        EVIL TWIN: <span class="value" id="evilTwinCount">0</span>
+    </div>
+    <div class="status-item">
+        LAST ALERT: <span class="value" id="lastAlert">--:--:--</span>
+    </div>
+</div>
+
+<!-- ===== STATISTICS ===== -->
+<div class="stats" id="statsContainer">
+    <div class="stat-box">
+        <div class="number" id="statTotal">0</div>
+        <div class="label">Total Alerts</div>
+    </div>
+    <div class="stat-box">
+        <div class="number" id="statDeauth">0</div>
+        <div class="label">Deauth Attacks</div>
+    </div>
+    <div class="stat-box">
+        <div class="number" id="statEvilTwin">0</div>
+        <div class="label">Evil Twin</div>
+    </div>
+    <div class="stat-box">
+        <div class="number" id="statLast">--:--:--</div>
+        <div class="label">Last Alert</div>
+    </div>
+</div>
+
+<!-- ===== ALERT FEED ===== -->
+<div class="alert-feed">
+    <div class="title">⚡ Live Alert Feed</div>
+    <div id="alertContainer">
+        <div class="empty">🛡️ Monitoring airwaves... No threats detected</div>
+    </div>
+</div>
+
+<!-- ===== ACTIONS ===== -->
+<div class="actions">
+    <button class="btn" onclick="exportLogs()">📥 Export Logs</button>
+    <button class="btn danger" onclick="clearAlerts()">🗑️ Clear Alerts</button>
+    <button class="btn" onclick="refreshAlerts()">🔄 Refresh</button>
+</div>
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================ -->
+<script>
+    // ============================================
+    // CONFIGURATION
+    // ============================================
+    const REFRESH_INTERVAL = 2000; // Refresh every 2 seconds
+    
+    // ============================================
+    // FETCH ALERTS FROM SERVER
+    // ============================================
+    async function fetchAlerts() {
+        try {
+            const response = await fetch('/api/alerts');
+            const alerts = await response.json();
+            displayAlerts(alerts);
+            updateStats(alerts);
+        } catch (error) {
+            console.error('Error fetching alerts:', error);
+        }
+    }
+    
+    // ============================================
+    // DISPLAY ALERTS
+    // ============================================
+    function displayAlerts(alerts) {
+        const container = document.getElementById('alertContainer');
+        
+        if (alerts.length === 0) {
+            container.innerHTML = '<div class="empty">🛡️ Monitoring airwaves... No threats detected</div>';
+            return;
+        }
+        
+        let html = '';
+        // Show newest first (reverse order)
+        const reversed = [...alerts].reverse();
+        
+        for (const alert of reversed) {
+            const typeClass = alert.type || 'unknown';
+            const typeLabel = alert.type ? alert.type.toUpperCase() : 'UNKNOWN';
+            
+            html += `
+                <div class="alert-card ${typeClass}">
+                    <div class="header-row">
+                        <span class="type ${typeClass}">${getTypeIcon(alert.type)} ${typeLabel}</span>
+                        <span class="time">${alert.timestamp || 'Unknown time'}</span>
+                    </div>
+                    <div class="details">
+            `;
+            
+            if (alert.type === 'deauth') {
+                html += `
+                    <div>SSID: <span class="highlight">${alert.ssid || 'Unknown'}</span></div>
+                    <div>Attacker MAC: <span class="highlight">${alert.mac || 'Unknown'}</span></div>
+                    <div>Packets: <span class="highlight">${alert.packets || 0}</span></div>
+                `;
+            } else if (alert.type === 'evil_twin') {
+                html += `
+                    <div>SSID: <span class="highlight">${alert.ssid || 'Unknown'}</span></div>
+                    <div>Trusted AP: <span class="highlight">${alert.trusted_mac || 'Unknown'}</span></div>
+                    <div>Rogue AP: <span class="highlight">${alert.rogue_mac || 'Unknown'}</span></div>
+                `;
+            } else {
+                html += `<div>${JSON.stringify(alert)}</div>`;
+            }
+            
+            html += `
+                    </div>
+                </div>
+            `;
+        }
+        
+        container.innerHTML = html;
+    }
+    
+    // ============================================
+    // UPDATE STATISTICS
+    // ============================================
+    function updateStats(alerts) {
+        const deauth = alerts.filter(a => a.type === 'deauth').length;
+        const evilTwin = alerts.filter(a => a.type === 'evil_twin').length;
+        const total = alerts.length;
+        const lastAlert = alerts.length > 0 ? alerts[alerts.length - 1].timestamp : '--:--:--';
+        
+        document.getElementById('statTotal').textContent = total;
+        document.getElementById('statDeauth').textContent = deauth;
+        document.getElementById('statEvilTwin').textContent = evilTwin;
+        document.getElementById('statLast').textContent = lastAlert ? lastAlert.split(' ')[1] : '--:--:--';
+        
+        document.getElementById('totalAlerts').textContent = total;
+        document.getElementById('deauthCount').textContent = deauth;
+        document.getElementById('evilTwinCount').textContent = evilTwin;
+        document.getElementById('lastAlert').textContent = lastAlert ? lastAlert.split(' ')[1] : '--:--:--';
+    }
+    
+    // ============================================
+    // EXPORT LOGS
+    // ============================================
+    async function exportLogs() {
+        try {
+            const response = await fetch('/api/export');
+            const text = await response.text();
+            
+            // Create download
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `wips_logs_${new Date().toISOString().slice(0,10)}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        } catch (error) {
+            console.error('Error exporting logs:', error);
+            alert('No logs to export');
+        }
+    }
+    
+    // ============================================
+    // CLEAR ALERTS (UI only - server still has them)
+    // ============================================
+    async function clearAlerts() {
+    if (confirm('Clear all alerts from the dashboard?')) {
+        // Clear from server
+        await fetch('/api/clear', { method: 'POST' });
+        
+        // Then refresh the display
+        fetchAlerts();
+    }
+}
+    
+    // ============================================
+    // REFRESH MANUALLY
+    // ============================================
+    function refreshAlerts() {
+        fetchAlerts();
+    }
+    
+    // ============================================
+    // HELPER: GET TYPE ICON
+    // ============================================
+    function getTypeIcon(type) {
+        switch(type) {
+            case 'deauth': return '🔴';
+            case 'evil_twin': return '🟠';
+            default: return '⚪';
+        }
+    }
+    
+    // ============================================
+    // START AUTO-REFRESH
+    // ============================================
+    // Fetch immediately
+    fetchAlerts();
+    
+    // Then fetch every 2 seconds
+    setInterval(fetchAlerts, REFRESH_INTERVAL);
+</script>
+
+</body>
+</html>

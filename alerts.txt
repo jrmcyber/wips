@@ -1,0 +1,42 @@
+[2026-09-09 14:59:01] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-09 14:59:01", "id": 0}
+----------------------------------------
+[2026-09-09 14:59:02] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-09 14:59:02", "id": 1}
+----------------------------------------
+[2026-09-09 15:01:10] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-09 15:01:10", "id": 2}
+----------------------------------------
+[2026-09-09 15:01:10] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-09 15:01:10", "id": 3}
+----------------------------------------
+[2026-09-09 15:01:37] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-09 15:01:37", "id": 4}
+----------------------------------------
+[2026-09-09 15:01:37] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-09 15:01:37", "id": 5}
+----------------------------------------
+[2026-09-10 00:10:32] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-10 00:10:32", "id": 0}
+----------------------------------------
+[2026-09-10 00:10:32] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-10 00:10:32", "id": 1}
+----------------------------------------
+[2026-09-10 00:17:17] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-10 00:17:17", "id": 0}
+----------------------------------------
+[2026-09-10 00:17:17] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-10 00:17:17", "id": 1}
+----------------------------------------
+[2026-09-10 00:25:08] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-10 00:25:08", "id": 0}
+----------------------------------------
+[2026-09-10 00:25:08] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-10 00:25:08", "id": 1}
+----------------------------------------
+[2026-09-10 00:30:05] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-10 00:30:05", "id": 0}
+----------------------------------------
+[2026-09-10 00:30:05] EVIL_TWIN
+{"type": "evil_twin", "ssid": "HUAWEI-5Ub4", "trusted_mac": "48:AD:08:D5:3E:78", "rogue_mac": "AE:FA:47:B2:7D:D1", "timestamp": "2026-09-10 00:30:05", "id": 1}
+----------------------------------------
